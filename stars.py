@@ -17,15 +17,11 @@ class Star(Sprite):
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
         self.x = float(self.rect.x)
-        
-        def blitme(self):
-            self.screen.blit(self.image, self.rect)
 
 def run_game():
     pygame.init()
     screen = pygame.display.set_mode((screen_width, screen_height))
     pygame.display.set_caption("Starry Sky")
-    star = Star(screen)
     stars = Group()
     create_sky(screen, stars)
     random_star(screen, stars)
@@ -38,10 +34,8 @@ def run_game():
         screen.fill((0, 85, 255))
         #random_star(screen, stars)  #ХАОТИЧНОЕ ПЕРЕМЕЩЕНИЕ
         stars.draw(screen)
-        
-        
+
         pygame.display.flip()
-        #print(len(stars))
         
 def create_sky(screen, stars):
     star = Star(screen)
@@ -72,7 +66,6 @@ def random_star(screen, stars):
         misaligned_star.y = misaligned_star.rect.y + randint(-30, 30)
         misaligned_star.rect.y = misaligned_star.y   
 
-        
 run_game()
 
 
